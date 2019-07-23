@@ -2,7 +2,7 @@ version: '2'
 services:
   db:
     container_name: webapp-mysql
-    image: mysql:latest
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: myapp
