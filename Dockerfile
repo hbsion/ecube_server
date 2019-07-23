@@ -50,7 +50,7 @@ RUN yum install --enablerepo=remi-php71 -y php-pdo php-mysqlnd php-pecl-mysql &&
     yum clean all
 
 # ec-ceube
-RUN yum install --enablerepo=remi-php71 -y php-intl && \
+RUN yum install --enablerepo=remi-php71 -y php-intl php-zip php-apc && \
     yum clean all
 
 # composer
