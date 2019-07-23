@@ -49,9 +49,9 @@ RUN yum install --enablerepo=remi-php71 -y php php-devel php-gd php-mbstring php
 RUN yum install --enablerepo=remi-php71 -y php-pdo php-mysqlnd php-pecl-mysql && \
     yum clean all
 
-# # ec-ceube
-# RUN yum install --enablerepo=remi-php71 -y php-intl && \
-#     yum clean all
+# ec-ceube
+RUN yum install --enablerepo=remi-php71 -y php-intl && \
+    yum clean all
 
 # composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
