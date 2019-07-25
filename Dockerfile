@@ -21,7 +21,7 @@ RUN yum install -y epel-release && \
 	sed -i -e "s/enabled *= *1/enabled=0/g" /etc/yum.repos.d/remi.repo
 
 # httpd, sshd, scp, openssl, sudo, which
-RUN yum install -y httpd httpd-tools openssh-server openssh-clients openssl sudo which && \
+RUN yum install -y httpd httpd-tools openssh-server openssh-clients openssl mod_ssl sudo which && \
     yum clean all
 
 # libmcrypt, supervisor
@@ -44,8 +44,8 @@ RUN yum install --enablerepo=remi,remi-php71 -y php-pecl-memcached && \
 RUN yum install --enablerepo=remi-php71 -y php php-devel php-gd php-mbstring php-mcrypt php-json php-xml php-opcache && \
     yum clean all && \
 	sed -i -e "s/;date.timezone *=.*$/date.timezone = Asia\/Tokyo/" /etc/php.ini && \
-    sed -i -e "s/;max_execution_time *=.*$/max_execution_time = 600/" /etc/php.ini && \
-    sed -i -e "s/;max_input_time *=.*$/max_input_time = 600/" /etc/php.ini 
+    	sed -i -e "s/;max_execution_time *=.*$/max_execution_time = 600/" /etc/php.ini && \
+    	sed -i -e "s/;max_input_time *=.*$/max_input_time = 600/" /etc/php.ini 
 
 # php-pdo (for mysql)
 RUN yum install --enablerepo=remi-php71 -y php-pdo php-mysqlnd php-pecl-mysql && \
@@ -79,6 +79,6 @@ ENV WEBAPP_ROOT /webapp
 ADD ./conf/httpd.conf /etc/httpd/conf/httpd.conf
 ADD ./conf/supervisord.conf /etc/supervisord.conf
 
-EXPOSE 22 80
+EXPOSE 80 443
 
 CMD ["/usr/bin/supervisord"]
