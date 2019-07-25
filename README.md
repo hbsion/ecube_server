@@ -10,7 +10,7 @@
 2) Clone this project and get it running!
 
 ```
-git clone http://10.2.66.60/gitlab/docker/lamp71.git ./{Project Name}
+git clone https://github.com/hbsion/ecube_server.git ./{Project Name}
 cd {Project Name}
 ```
 
