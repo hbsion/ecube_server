@@ -1,7 +1,5 @@
 # CentOS 7 + Apache 2.4 + PHP 7.1 MySQL 5.7 for Docker
 
-Dockerを使ったLAMP開発環境簡単構築.
-
 ## Install
 
 1) Install dependencies
